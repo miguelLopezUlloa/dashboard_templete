@@ -4,13 +4,76 @@
 
 @layer base {
   :root {
-    /* Variables base definidas en @theme inline */
+    /* Variables base del tema Matsu (default) */
+    --color-background: #e8dcc4;
+    --color-foreground: #5a5244;
+    --color-card: #ebe0cb;
+    --color-card-foreground: #5a5244;
+    --color-popover: #ebe0cb;
+    --color-popover-foreground: #5a5244;
+    --color-primary: #9fb569;
+    --color-primary-foreground: #faf9f7;
+    --color-secondary: #d9c9a8;
+    --color-secondary-foreground: #6b6050;
+    --color-muted: #d4c4a3;
+    --color-muted-foreground: #6b6050;
+    --color-accent: #d4c4a3;
+    --color-accent-foreground: #322f29;
+    --color-destructive: #c85a54;
+    --color-destructive-foreground: #f7f2ec;
+    --color-border: #b8a88a;
+    --color-input: #b8a88a;
+    --color-ring: #6b6050;
+    --color-chart-1: #c07850;
+    --color-chart-2: #71a39c;
+    --color-chart-3: #506678;
+    --color-chart-4: #e8c766;
+    --color-chart-5: #d17a5e;
+    --color-sidebar: #d9cdb7;
+    --color-sidebar-foreground: #5a5244;
+    --color-sidebar-primary: #322f29;
+    --color-sidebar-primary-foreground: #faf9f7;
+    --color-sidebar-accent: #cebfa1;
+    --color-sidebar-accent-foreground: #322f29;
+    --color-sidebar-border: #e5ddc9;
+    --color-sidebar-ring: #a8967c;
   }
 
-  /* Tema Matsu/Ghibli (Default) - Mantiene los colores HEX del @theme inline */
+  /* Tema Matsu/Ghibli (Default) */
   .matsu,
   .theme-ghibli {
-    /* No sobrescribe nada, usa los colores por defecto de @theme inline */
+    --color-background: #e8dcc4;
+    --color-foreground: #5a5244;
+    --color-card: #ebe0cb;
+    --color-card-foreground: #5a5244;
+    --color-popover: #ebe0cb;
+    --color-popover-foreground: #5a5244;
+    --color-primary: #9fb569;
+    --color-primary-foreground: #faf9f7;
+    --color-secondary: #d9c9a8;
+    --color-secondary-foreground: #6b6050;
+    --color-muted: #d4c4a3;
+    --color-muted-foreground: #6b6050;
+    --color-accent: #d4c4a3;
+    --color-accent-foreground: #322f29;
+    --color-destructive: #c85a54;
+    --color-destructive-foreground: #f7f2ec;
+    --color-border: #b8a88a;
+    --color-input: #b8a88a;
+    --color-ring: #6b6050;
+    --color-chart-1: #c07850;
+    --color-chart-2: #71a39c;
+    --color-chart-3: #506678;
+    --color-chart-4: #e8c766;
+    --color-chart-5: #d17a5e;
+    --color-sidebar: #d9cdb7;
+    --color-sidebar-foreground: #5a5244;
+    --color-sidebar-primary: #322f29;
+    --color-sidebar-primary-foreground: #faf9f7;
+    --color-sidebar-accent: #cebfa1;
+    --color-sidebar-accent-foreground: #322f29;
+    --color-sidebar-border: #e5ddc9;
+    --color-sidebar-ring: #a8967c;
   }
 
   /* Tema Matsu/Ghibli Oscuro */
@@ -235,42 +298,7 @@
 }
 
 @theme inline {
-  /* Tema Matsu (Ghibli) - Colores base */
-  --color-background: #e8dcc4;
-  --color-foreground: #5a5244;
-  --color-card: #ebe0cb;
-  --color-card-foreground: #5a5244;
-  --color-popover: #ebe0cb;
-  --color-popover-foreground: #5a5244;
-  --color-primary: #9fb569;
-  --color-primary-foreground: #faf9f7;
-  --color-secondary: #d9c9a8;
-  --color-secondary-foreground: #6b6050;
-  --color-muted: #d4c4a3;
-  --color-muted-foreground: #6b6050;
-  --color-accent: #d4c4a3;
-  --color-accent-foreground: #322f29;
-  --color-destructive: #c85a54;
-  --color-destructive-foreground: #f7f2ec;
-  --color-border: #b8a88a;
-  --color-input: #b8a88a;
-  --color-ring: #6b6050;
-  --color-chart-1: #c07850;
-  --color-chart-2: #71a39c;
-  --color-chart-3: #506678;
-  --color-chart-4: #e8c766;
-  --color-chart-5: #d17a5e;
-  --color-sidebar: #d9cdb7;
-  --color-sidebar-foreground: #5a5244;
-  --color-sidebar-primary: #322f29;
-  --color-sidebar-primary-foreground: #faf9f7;
-  --color-sidebar-accent: #cebfa1;
-  --color-sidebar-accent-foreground: #322f29;
-  --color-sidebar-border: #e5ddc9;
-  --color-sidebar-ring: #a8967c;
-  --color-primary-border: #7e9152;
-  --color-destructive-border: #8b3e3a;
-  
+  /* Variables de configuración del tema (no colores) */
   --font-sans: Nunito, sans-serif;
   --font-mono: var(--font-geist-mono);
   --radius: 0.625rem;
@@ -290,14 +318,18 @@
   --shadow-xl: 0 2px 0 0 var(--color-border);
   --shadow-2xl: 0 2px 0 0 var(--color-border);
   --shadow-3xl: 0 2px 0 0 var(--color-border);
+  --color-primary-border: #7e9152;
+  --color-destructive-border: #8b3e3a;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
     overscroll-behavior: none;

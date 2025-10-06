@@ -145,7 +145,10 @@ export function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarHeader className="border-b p-4">
+      <SidebarHeader 
+        className="flex h-14 items-center border-b px-4"
+        style={{ borderColor: "var(--color-border)" }}
+      >
         <h2 className="text-lg font-semibold">Mi Dashboard</h2>
       </SidebarHeader>
       <SidebarContent className="p-4">
