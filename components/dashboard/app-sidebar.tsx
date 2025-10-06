@@ -103,11 +103,20 @@ export function AppSidebar() {
               {item.href ? (
                 <Link href={item.href}>
                   <Button
-                    variant={isActive ? "secondary" : "ghost"}
+                    variant="ghost"
                     className={cn(
-                      "w-full justify-start",
-                      isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
+                      "w-full justify-start transition-all duration-200 rounded-lg sidebar-menu-item",
+                      isActive && "font-bold"
                     )}
+                    style={{
+                      backgroundColor: isActive 
+                        ? "var(--color-sidebar-accent)" 
+                        : "transparent",
+                      color: isActive
+                        ? "var(--color-sidebar-accent-foreground)"
+                        : "var(--color-sidebar-foreground)",
+                      border: isActive ? "2px solid var(--color-border)" : "2px solid transparent",
+                    }}
                   >
                     <Icon className="mr-2 h-4 w-4" />
                     {item.title}
@@ -116,8 +125,11 @@ export function AppSidebar() {
               ) : (
                 <Button
                   variant="ghost"
-                  className="w-full justify-start"
+                  className="w-full justify-start transition-all duration-200 rounded-lg sidebar-menu-item"
                   onClick={() => toggleItem(item.title)}
+                  style={{
+                    border: "2px solid transparent",
+                  }}
                 >
                   <Icon className="mr-2 h-4 w-4" />
                   {item.title}

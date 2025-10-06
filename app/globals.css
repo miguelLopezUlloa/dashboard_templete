@@ -295,6 +295,18 @@
     height: 100dvh;
     pointer-events: none;
   }
+
+  /* Sidebar menu hover effects */
+  .sidebar-menu-item {
+    transition: all 0.2s ease;
+  }
+  
+  .sidebar-menu-item:hover {
+    background-color: var(--color-sidebar-accent) !important;
+    color: var(--color-sidebar-accent-foreground) !important;
+    border: 2px solid var(--color-border) !important;
+    font-weight: 600;
+  }
 }
 
 @theme inline {
