@@ -10,9 +10,13 @@ import {
   Package,
   Users,
   Settings,
-  LifeBuoy,
-  Send,
+  Search,
+  User,
+  CreditCard,
+  Bell,
+  LogOut,
   ChevronDown,
+  MoreVertical,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -23,6 +27,13 @@ import {
   SidebarHeader,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 interface NavItem {
   title: string
@@ -57,23 +68,23 @@ const navItems: NavItem[] = [
     href: "/customers",
     icon: Users,
   },
+]
+
+const bottomItems: NavItem[] = [
   {
     title: "Configuración",
     href: "/settings",
     icon: Settings,
   },
-]
-
-const secondaryItems: NavItem[] = [
   {
-    title: "Soporte",
-    href: "/support",
-    icon: LifeBuoy,
+    title: "Buscar",
+    href: "/search",
+    icon: Search,
   },
   {
-    title: "Feedback",
-    href: "/feedback",
-    icon: Send,
+    title: "Cuenta",
+    href: "/account",
+    icon: User,
   },
 ]
 
@@ -163,11 +174,73 @@ export function AppSidebar() {
       >
         <h2 className="text-lg font-semibold">Mi Dashboard</h2>
       </SidebarHeader>
-      <SidebarContent className="p-4">
-        <NavItems items={navItems} />
-        <div className="mt-auto pt-4">
-          <div className="my-4 border-t" />
-          <NavItems items={secondaryItems} />
+      <SidebarContent className="flex flex-col p-4">
+        <div className="flex-1">
+          <NavItems items={navItems} />
+        </div>
+        <div className="mt-auto space-y-4">
+          <div className="border-t pt-4" style={{ borderColor: "var(--color-border)" }}>
+            <NavItems items={bottomItems} />
+          </div>
+          
+          {/* User Menu */}
+          <div className="border-t pt-4" style={{ borderColor: "var(--color-border)" }}>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between rounded-lg sidebar-menu-item px-3 py-2 h-auto"
+                  style={{ border: "2px solid transparent" }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div 
+                      className="h-10 w-10 rounded-full flex items-center justify-center text-sm font-bold"
+                      style={{
+                        backgroundColor: "var(--color-primary)",
+                        color: "var(--color-primary-foreground)",
+                      }}
+                    >
+                      MZ
+                    </div>
+                    <div className="flex flex-col items-start text-sm">
+                      <span className="font-semibold">Usuario Demo</span>
+                      <span className="text-xs" style={{ color: "var(--color-muted-foreground)" }}>
+                        usuario@demo.com
+                      </span>
+                    </div>
+                  </div>
+                  <MoreVertical className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent 
+                align="end" 
+                className="w-56"
+                style={{
+                  backgroundColor: "var(--color-card)",
+                  borderColor: "var(--color-border)",
+                  color: "var(--color-card-foreground)",
+                }}
+              >
+                <DropdownMenuItem className="cursor-pointer">
+                  <User className="mr-2 h-4 w-4" />
+                  <span>Cuenta</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <CreditCard className="mr-2 h-4 w-4" />
+                  <span>Facturación</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Bell className="mr-2 h-4 w-4" />
+                  <span>Notificaciones</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator style={{ backgroundColor: "var(--color-border)" }} />
+                <DropdownMenuItem className="cursor-pointer text-red-600">
+                  <LogOut className="mr-2 h-4 w-4" />
+                  <span>Cerrar sesión</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </SidebarContent>
     </Sidebar>
