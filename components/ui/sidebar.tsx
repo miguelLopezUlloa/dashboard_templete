@@ -119,7 +119,8 @@ const Sidebar = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"aside">
 >(({ className, children, ...props }, ref) => {
-  const { isMobile, openMobile, setOpenMobile } = useSidebar()
+  const { state, isMobile, openMobile, setOpenMobile } = useSidebar()
+  const isCollapsed = state === "collapsed"
 
   return (
     <>
@@ -132,8 +133,9 @@ const Sidebar = React.forwardRef<
       <aside
         ref={ref}
         className={cn(
-          "fixed inset-y-0 left-0 z-50 w-[--sidebar-width] border-r transition-transform duration-200 ease-out md:relative md:translate-x-0",
+          "fixed inset-y-0 left-0 z-50 border-r transition-all duration-300 ease-in-out md:relative md:translate-x-0",
           isMobile && !openMobile && "-translate-x-full",
+          isCollapsed ? "w-[70px]" : "w-[--sidebar-width]",
           className
         )}
         style={{
