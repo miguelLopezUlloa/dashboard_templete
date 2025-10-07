@@ -20,7 +20,7 @@ export default async function DashboardLayout({
         <AppSidebar />
         <SidebarInset>
           <SiteHeader />
-          <main className="flex-1 p-4 sm:p-6">{children}</main>
+          <main className="flex-1 p-4 sm:p-6" style={{ backgroundColor: "var(--color-background)" }}>{children}</main>
         </SidebarInset>
       </div>
     </SidebarProvider>

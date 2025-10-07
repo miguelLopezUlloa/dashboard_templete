@@ -1,6 +1,7 @@
 import DashboardLayout from "./dashboard-layout"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { TrendingUp, TrendingDown, Users, ShoppingBag, DollarSign, Activity } from "lucide-react"
+import { SalesChart } from "@/components/charts/sales-chart"
 
 export default function Home() {
   return (
@@ -75,12 +76,10 @@ export default function Home() {
           <Card>
             <CardHeader>
               <CardTitle>Resumen de Ventas</CardTitle>
-              <CardDescription>Ventas mensuales del último año</CardDescription>
+              <CardDescription>Ventas mensuales con comparativa histórica</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="h-[200px] flex items-center justify-center text-muted-foreground">
-                [Gráfico de ventas aquí]
-              </div>
+              <SalesChart />
             </CardContent>
           </Card>
 

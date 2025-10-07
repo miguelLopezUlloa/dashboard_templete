@@ -9,7 +9,13 @@ export function SiteHeader() {
   const { toggleSidebar } = useSidebar()
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6">
+    <header 
+      className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b px-4 sm:px-6"
+      style={{ 
+        backgroundColor: "var(--color-card)",
+        borderColor: "var(--color-border)"
+      }}
+    >
       <Button
         variant="ghost"
         size="icon"

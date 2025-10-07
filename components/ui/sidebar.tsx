@@ -132,10 +132,14 @@ const Sidebar = React.forwardRef<
       <aside
         ref={ref}
         className={cn(
-          "fixed inset-y-0 left-0 z-50 w-[--sidebar-width] bg-sidebar border-r border-sidebar-border transition-transform duration-200 ease-out md:relative md:translate-x-0",
+          "fixed inset-y-0 left-0 z-50 w-[--sidebar-width] border-r transition-transform duration-200 ease-out md:relative md:translate-x-0",
           isMobile && !openMobile && "-translate-x-full",
           className
         )}
+        style={{
+          backgroundColor: "var(--color-sidebar)",
+          borderColor: "var(--color-sidebar-border)",
+        }}
         {...props}
       >
         {children}
@@ -194,7 +198,8 @@ const SidebarInset = React.forwardRef<
   return (
     <main
       ref={ref}
-      className={cn("flex flex-1 flex-col bg-background", className)}
+      className={cn("flex flex-1 flex-col", className)}
+      style={{ backgroundColor: "var(--color-background)" }}
       {...props}
     />
   )
